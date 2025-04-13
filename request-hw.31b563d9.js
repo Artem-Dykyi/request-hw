@@ -160,11 +160,11 @@
       });
     }
   }
-})({"81jmc":[function(require,module,exports,__globalThis) {
+})({"jXLGP":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
-var HMR_SERVER_PORT = 52226;
+var HMR_SERVER_PORT = 59005;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "439701173a9199ea";
 var HMR_USE_SSE = false;
@@ -667,21 +667,39 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"a0t4e":[function(require,module,exports,__globalThis) {
+const input = document.querySelector(".input-country");
+let allCountry = [];
 fetch("https://restcountries.com/v3.1/all").then((respons)=>{
     return respons.json();
 }).then((data)=>{
-    makeCountryList(data);
+    console.log(data);
+    // makeCountryList(data)
+    allCountry = data;
 }).catch((error)=>{
     console.log(error);
 });
 function makeCountryList(countries) {
-    // console.log(countries)
     const elements = countries.map((country)=>`<li class="country-item">
             <p class="country-name">${country.name.common}</p>
+            <p class="country-capital">\u{421}\u{442}\u{43E}\u{43B}\u{438}\u{446}\u{44F} ${country.capital}</p>
+            <p class="country-population">\u{41D}\u{430}\u{441}\u{435}\u{43B}\u{435}\u{43D}\u{43D}\u{44F} ${country.population}</p>
+            <img src="${country.flags.png}" alt="" class="country-flag">
         </li>`).join("");
     document.querySelector(".country-list").innerHTML = elements;
 }
+const filterCountries = function(name) {
+    const value = name.trim().toLowerCase();
+    if (!value) {
+        countryList.innerHTML = '';
+        return;
+    }
+    const filtered = allCountry.filter((country)=>country.name.common.toLowerCase().startsWith(value));
+    makeCountryList(filtered);
+};
+input.addEventListener('input', (e)=>{
+    filterCountries(e.target.value);
+});
 
-},{}]},["81jmc","a0t4e"], "a0t4e", "parcelRequiree040", {})
+},{}]},["jXLGP","a0t4e"], "a0t4e", "parcelRequiree040", {})
 
 //# sourceMappingURL=request-hw.31b563d9.js.map

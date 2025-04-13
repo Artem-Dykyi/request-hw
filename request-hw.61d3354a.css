@@ -1,2 +1,39 @@
+body {
+  background-color: #bdb76b;
+}
 
+.country-item {
+  text-align: center;
+  background-color: #deb887;
+  border: 3px solid #e9967a;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.country-capital, .country-population, .country-name {
+  color: #00008b;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 18px;
+}
+
+.country-flag {
+  width: 200px;
+}
+
+.input-country {
+  border-radius: none;
+  background-color: #bdb76b;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  display: block;
+}
+
+.title {
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 24px;
+}
 /*# sourceMappingURL=request-hw.61d3354a.css.map */
